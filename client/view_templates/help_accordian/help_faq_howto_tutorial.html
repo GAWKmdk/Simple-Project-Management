@@ -1,0 +1,45 @@
+<template name="help">
+  <div class="template-help">
+    <div class="page-header">
+       <!--  <div class="jumbotron"><h2><i class="fa fa-info-circle" aria-hidden="true"></i> Help, Tutorials, How-to, FAQ</h2></div> --> 
+      
+      <div>
+                  
+          <ol class="breadcrumb">
+        <li class=""><a href="{{pathFor 'profile'}}"><i class="fa fa-user"></i> <!--configure signup-signin with custom registration to match profile{{user}}--> {{ currentUser.username }} </a></li> 
+       <li class="active"><a href="{{pathFor 'dashboard'}}"><i class="fa fa-info-circle" aria-hidden="true"></i> FAQ </a></li> <br>  
+       
+    </ol> 
+          
+      </div>
+      
+      
+      
+      <div>
+          
+          
+         {{>firsttimeuser}}
+          
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div> 
+  
+  
+</template>
+
+
+

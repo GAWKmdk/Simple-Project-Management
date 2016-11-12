@@ -1,0 +1,28 @@
+<template name="home">
+  <div class="template-home" align="center" style="width:100%">
+    <!--<div class="page-header"> -->
+    
+     <p>
+         
+    {{#if currentUser}} 
+    {{else}}
+     {{> carousel_features}}
+    <hr>
+     
+     {{> app_signup}}
+     
+      <!--{{> price_list}} -->
+     
+       {{/if}}
+
+    </p>
+    
+  </div>
+</template>
+
+
+
+
+
+
+

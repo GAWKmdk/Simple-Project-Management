@@ -1,0 +1,137 @@
+<template name="listings">
+  <div class="template-listings">
+   
+   
+ {{#if contactToDelete}}
+ {{>delapprove}}
+ {{/if}}
+   
+   <div class="page-header">
+      
+          <ol class="breadcrumb">
+        <li class="active"><a href="{{pathFor 'profile'}}"><i class="fa fa-user"></i> <!--configure signup-signin with custom registration to match profile{{user}}--> {{ currentUser.username }} </a></li> 
+         <li class=""><i class="fa fa-group" aria-hidden="true"></i> Clients <span class="badge badge-success">{{clientCount}}</span>
+      </li> <br>  
+       
+    </ol>  
+      </div>
+      
+        <div class="alert alert-info alert-dismissable">
+    		
+			<i class="fa fa-bullhorn" aria-hidden="true"></i>
+ TOOLTIP: <br><br> Client and/or company details like the clients' location, title/role, company and/or contact details can be created or edited directly -<br> by <b>Selecting</b> the appropriate detail field from their card below.  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button>
+		</div>
+    
+    
+    <div class="page-body-header">
+          
+          <div class="row">
+          
+          <div class="col-md-6">
+        <p> 
+          <style>
+              .setup_input {
+                  border:none;
+                  height:45px;
+                  width:400px;
+                  font-size:16pt;
+                  
+              }
+         </style>
+          
+          <input class="customername setup_input noborder" type="text" name="contactnames" id="contactNameEnter" placeholder=" Add a New Contact Card" value="">
+          </p>  </div>
+      
+    <div class="col-md-6" align="right">
+    
+          <select class="sorting">
+      <option value="lastupdate">Most Recent</option>
+     <option value="datecreate">Timeline Last</option>
+     
+     <option value="nameasc">Contact Name Asc</option>
+     <option value="namedesc">Contact Name Desc</option>
+     
+     <option value="companyasc">Company Name Asc</option>
+     <option value="companydesc">Company Name Desc</option>
+    
+    
+   
+  </select>
+          
+          <span class="btn btn-default " > {{> EasySearch.Input index=CustomerIndex }} <i class="fa fa-search" aria-hidden="true"> </i>
+</span> <br>
+       
+        
+        
+   
+       
+           
+          </div>
+          {{> EasySearch.Pagination index=CustomerIndex customRenderPagination="paginate" maxPage=50 prevAndNext=true  }}
+            
+           
+             </div>
+             
+          
+               
+        
+        <div class="row">
+          <div class="col-md-12">
+           <div class="page-body">
+           
+            
+            
+        
+           
+             {{#transition in="fadeInUp" out="bounceOutDown"}}
+             {{#EasySearch.Each index=CustomerIndex placeholder="Search by name, company, role, email, country, phone or username" }}
+             
+              
+             
+         <!--{{#each fcResults}}-->
+                  <!--{{#each customers }} -->
+              {{>contact}}
+             
+         
+           <!--  {{/each}} --> 
+              {{/EasySearch.Each}}
+             
+
+              
+             {{/transition}}
+              
+              </div>
+              
+              </div>
+              
+              
+              <hr>
+              
+      
+  
+     
+      </div>
+    
+    
+      </div> </div>
+  
+  
+</template>
+
+
+<template name="paginate">
+    
+    
+     
+ 
+     <ul class="pagination">
+         <!-- <li><a href="#" class="">&lt;&lt;</a></li>
+          <li><a href="#" class="">&lt;</a></li>-->
+          {{#each page}}
+         <li class="page {{pageClasses this}}"><b>{{content}}</b></li>
+                 {{/each}}
+          <!--<li><a href="#" class="">&gt;</a></li>
+          <li><a href="#" class="">&gt;&gt;</a></li>-->
+</ul>
+    
+</template>

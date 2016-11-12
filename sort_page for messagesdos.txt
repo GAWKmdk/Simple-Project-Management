@@ -1,0 +1,57 @@
+<div class="table-responsive">
+      <table class="table table-striped table-hover table-condensed">
+        <tr>
+          <th class="fc-sort" data-fc-sort="corporate_group.title">
+            Title
+            {{#if fcSort.corporate_group.title.desc}}(desc){{/if}}
+            {{#if fcSort.corporate_group.title.asc}}(asc){{/if}}
+          </th>
+          <th class="fc-sort" data-fc-sort="name">
+            Name
+            {{#if fcSort.name.desc}}(desc){{/if}}
+            {{#if fcSort.name.asc}}(asc){{/if}}
+          </th>
+          <th class="fc-sort" data-fc-sort="group">
+            Group
+            {{#if fcSort.group.desc}}(desc){{/if}}
+            {{#if fcSort.group.asc}}(asc){{/if}}
+          </th>
+          <th class="fc-sort" data-fc-sort="number">
+            Number
+            {{#if fcSort.number.desc}}(desc){{/if}}
+            {{#if fcSort.number.asc}}(asc){{/if}}
+          </th>
+          <th class="fc-sort" data-fc-sort="random_number">
+            Random Number
+            {{#if fcSort.random_number.desc}}(desc){{/if}}
+            {{#if fcSort.random_number.asc}}(asc){{/if}}
+          </th>
+          <th class="fc-sort" data-fc-sort="corporate_group.gender">
+            Gender
+            {{#if fcSort.corporate_group.gender.desc}}(desc){{/if}}
+            {{#if fcSort.corporate_group.gender.asc}}(asc){{/if}}
+          </th>
+          <th class="fc-sort" data-fc-sort="corporate_group.hobbies">
+            Hobbies
+            {{#if fcSort.corporate_group.hobbies.desc}}(desc){{/if}}
+            {{#if fcSort.corporate_group.hobbies.asc}}(asc){{/if}}
+          </th>
+        </tr>
+        {{#each fcResults}}
+        <tr>
+          <td>{{corporate_group.title}}</td>
+          <td>{{name}}</td>
+          <td>{{group}}</td>
+          <td>{{number}}</td>
+          <td>{{random_number}}</td>
+          <td>{{corporate_group.gender}}</td>
+          <td>
+            {{#each corporate_group.hobbies}}
+              {{this}},
+            {{/each}}
+          </td>
+        </tr>
+        {{/each}}
+      </table>
+    </div>
+</div>

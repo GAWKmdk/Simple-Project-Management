@@ -1,0 +1,150 @@
+<template name="contact">
+    
+    
+    <div class ="col-md-4 ">
+       <div class="shadowed panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+           <p class="pull-right">
+            
+                      <!--<a class="dropdown-item archiveCustomer" href="">Archive <i class="fa fa-archive archiveCustomer"></i></a> --> 
+                       <a class="dropdown-item deleteApproved" href="#"><i class="fa fa-trash deleteApproved"></i></a>
+               
+       </p>
+            
+            {{#if editingCustomername}}
+            <div class="row">
+              <div class="form-group">
+                <h5>
+                  <input style="width:400px;margin-left:10px;"  type="text" class="form-control name noborder largetype" id="name" placeholder="Customer Name" value="{{name}}" maxlength="50">
+                </h5>
+              </div>
+            </div>
+            {{else}}
+            <p class="editCustomerName"><h4><i class="glyphicon glyphicon-user"></i> - {{name}}</h4></p>
+            {{/if}}
+            
+            
+            {{#if editingCustomercountry}}
+            <div class="row">
+              <div class="form-group">
+                <h5>
+                  <input style="width:350px;margin-left:10px;"  type="text" class="form-control country noborder largetype" id="country" placeholder="Location eg: City, Country" value="{{country}}" maxlength="50">
+                </h5>
+              </div>
+            </div>
+            {{else}}
+            <p class="editCustomerCountry"><h5><small><cite title="Enter a Country/City"><i class="glyphicon glyphicon-map-marker"> {{country}}</i></cite></small></h5></p>
+            {{/if}}
+            
+            {{#if editingCustomertitle}}
+            <div class="row">
+              <div class="form-group">
+                <h5>
+                  <input style="width:350px;margin-left:10px;"  type="text" class="form-control role noborder largetype" id="role" placeholder="Enter a role eg: lead, support, etc" value="{{role}}">
+                </h5>
+              </div>
+            </div>
+            {{else}}
+           <p class="editCustomerTitle"><h5><small><i class="glyphicon glyphicon-tent"></i>: {{role}}</small></h5></p>
+            {{/if}}
+            
+          </h3>
+        </div>
+        <div class="panel-body ">
+        
+        
+         <div class="row">
+         <div class="col-md-6">
+          {{#if editingCustomercompany}}
+          <div class="row">
+            <div class="form-group">
+              <input  style="width:210px;margin-left:10px;"  type="text" class="noborder form-control largetype company" id="company"
+              placeholder="Enter a Company & Title " value="{{company}}" maxlength="50"><br/>
+            </div>
+          </div>
+          {{else}}
+          <p class="editCustomerCompany"><small><span class="text-muted"><i class="glyphicon glyphicon-briefcase"></i>: </span>
+            <span> {{company}}</span></small>
+          </p>
+          {{/if}}
+          
+           {{#if editingCustomerwebsite}}
+          <div class="row">
+            <div class="form-group">
+              <input  style="width:210px;margin-left:10px;"  type="url" class="noborder form-control largetype website" id="website"
+              placeholder="Enter a Website" value="{{website}}" maxlength="50"><br/>
+            </div>
+          </div>
+          {{else}}
+          <p class="editCustomerWebsite"><small><span class="text-muted"><i class="glyphicon glyphicon-link"></i>:</span>
+            <span> {{website}}</span></small>
+          </p>
+          {{/if}}
+            </div>
+            
+            
+            
+          <div class="col-md-6">
+           {{#if editingCustomeremail}}
+          <div class="row">
+            <div class="form-group">
+              <input  style="width:210px;margin-left:10px;"  type="email" class="noborder form-control largetype email" id="email"
+              placeholder="Enter an Email" value="{{email}}"  maxlength="50"><br/>
+            </div>
+          </div>
+          {{else}}
+          <p class="editCustomerEmail"><small><span class="text-muted"><i class="glyphicon glyphicon-envelope"></i>: </span>
+            <span> {{email}}</span></small>
+          </p>
+          {{/if}}
+         
+         
+          {{#if editingCustomerphone}}
+          <div class="row">
+            <div class="form-group">
+              <input  style="width:210px;margin-left:10px;"  type="text" class="noborder form-control largetype phone" id="phone"
+              placeholder="Enter a Phone Number" value="{{formatphone phone}}" maxlength="24"><br/>
+            </div>
+          </div>
+          {{else}}
+          <p class="editCustomerPhone"><small><span class="text-muted"><i class="glyphicon glyphicon-phone"></i>:</span>
+            <span> {{formatphone phone}}</span></small>
+          </p>
+          {{/if}}
+          
+            </div>
+          </div>
+          
+          <div class="row">
+          <div class="col-md-8">
+          {{#if editingCustomercontact}}
+          <div class="row">
+            <div class="form-group">
+              <input style="width:440px;height:100px;margin-left:10px;"   type="textarea" class="noborder largetype form-control contact" id="contact"
+              placeholder="Enter any Notes/Comments" value="{{contact}}" rows="25"  maxlength="225"><br/>
+            </div>
+          </div>
+          {{else}}
+          <p class="editCustomerContact"><small><span class="text-muted "><i class=" glyphicon glyphicon-pencil"></i>:</span>
+            <span> {{contact}}</span></small>
+          </p>
+          {{/if}}
+              </div>
+</div>
+          
+        </div>
+        
+        <div class="panel-footer">
+            
+           
+             <small><b>Contact add on:</b> {{ datecreate}}</small><br>
+             <small><b>Contact generated by:</b> {{ username}}</small><br>
+             
+                  
+          </div>
+        </div>  
+
+        </div>
+    
+</template>

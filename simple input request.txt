@@ -1,0 +1,33 @@
+   
+        <template name="form">
+    <form>
+        <input id="color" type="text" placeholder="Color" />
+        <input id="number" type="text" placeholder="Number" />
+        <button type="submit">Submit</button>
+    </form>
+    <div>
+        {{#each results}}
+            Name: {{name}}
+        {{/results}}
+    </div>
+</template>
+
+Template.form.events({
+    'submit': function(e,t){
+        e.preventDefault();
+        Session.set('colorFilter', $('#color').val());
+        Session.set('numberFilter', $('#number').val());
+    }
+});
+
+Template.form.helpers({
+    results: function(){
+        return Collection.find({
+          color: Session.get('colorFilter'),
+          number: Session.get('numberFilter')
+        });
+    }
+});
+        
+        
+       

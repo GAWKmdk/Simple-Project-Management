@@ -1,0 +1,209 @@
+
+<!--Chats Collection for Team board -->
+<!-- Conversations for Calendar --> 
+<!-- Notifications for File -->  
+
+
+<template name="projectView">
+{{#if editing_calevent}} 
+    {{>caltask}}
+    {{/if}}
+    
+     {{#if adding_conversation}}
+     {{>conversationDlg}}
+     {{/if}}     
+     <!--teamchat filechat --> 
+      {{#if adding_details}}
+     {{>fileDlg}}
+     {{/if}}
+     
+     
+<style>
+    
+       /*Panel tabs*/
+.panel-tabs {
+    position: relative;
+    bottom: 30px;
+    clear:both;
+    border-bottom: 1px solid transparent;
+}
+
+.panel-tabs > li {
+    float: left;
+    margin-bottom: -1px;
+}
+
+.panel-tabs > li > a {
+    margin-right: 2px;
+    margin-top: 4px;
+    line-height: .85;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    color: #ffffff;
+}
+
+.panel-tabs > li > a:hover {
+    border-color: transparent;
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.panel-tabs > li.active > a,
+.panel-tabs > li.active > a:hover,
+.panel-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: rgba(255,255,255, .23);
+    border-bottom-color: transparent;
+}
+    
+    </style>
+
+<div id="project_tree" class="panel">
+    
+    <ol class="breadcrumb">
+        
+        <li><a href="/dashboard"><i class="fa fa-cubes"></i> Projects</a></li>
+        <li class="active">{{name}}</li>
+    </ol>
+    
+</div>
+
+
+<div class="row">
+    
+    <div class="col-md-12">
+ 
+{{>project_tabs}}  
+        
+    </div>
+    
+</div>
+
+
+
+</template>
+
+
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+<template name="project_tabs">
+   
+     <script type="text/javascript">
+   
+        
+         
+         $(document).ready(function(){
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+
+        localStorage.setItem('activeTab', $(e.target).attr('href'));
+
+    });
+
+    var activeTab = localStorage.getItem('activeTab');
+
+    if(activeTab){
+
+        $('#myTab a[href="' + activeTab + '"]').tab('show');
+
+    }
+
+});
+         
+</script>
+ 
+   
+   <div class="panel panel-primary" style="display:block!important;">
+                <div class="panel-heading">
+                    <h6 class="panel-title">
+            <h8><i class="fa fa-circle-o"></i></h8>
+                    </h6>
+                    <span class="pull-right">
+                        <!-- Tabs --> <div id="tabs_render">
+                        <ul class="nav panel-tabs" id="myTab">
+                            <li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-cube"></i> General Details</a></li>
+                            <li><a href="#tab2" data-toggle="tab"><i class="fa fa-sitemap"></i> Team Planner</a></li>
+                            <li><a href="#tab3" data-toggle="tab" id="calendarrefresh"><i class="fa fa-calendar-check-o" ></i> Workplan</a></li>
+                          <li><a href="#tab4" data-toggle="tab"><i class="fa fa-folder-open"></i> Files</a></li>
+                             <!--   <li><a href="#tab5" data-toggle="tab"><i class="fa fa-code"></i> Snippet Pad</a></li>
+                           
+                            <li><a href="#tab6" data-toggle="tab"><i class="fa fa-object-group"></i> Slatebox</a></li> -->
+                            
+                            
+                             <li><a href="#tab7" data-toggle="tab"><i class="fa fa-sticky-note"></i> Scrumboard</a></li>
+                          
+                        </ul></div>
+                    </span>
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1">{{#animate type="fadeIn" delay="200"}}{{>project_Details}}{{/animate}}</div>
+                        <div class="tab-pane" id="tab2">{{#animate type="fadeIn" delay="200"}}{{>project_Team}}{{/animate}}</div>
+                        <div class="tab-pane" id="tab3">{{#animate type="fadeIn" delay="200"}}{{>project_Workplan}}{{/animate}}</div>
+                        <div class="tab-pane" id="tab4">{{#animate type="fadeIn" delay="200"}}{{>project_Files}}{{/animate}}</div>
+                        <div class="tab-pane" id="tab7">{{#animate type="fadeIn" delay="200"}}{{>project_Scrumboard}}{{/animate}}</div>
+                        <div class="tab-pane" id="tab6">{{#animate type="fadeIn" delay="200"}}{{>scratchpad}}{{/animate}}</div>
+                        <div class="tab-pane" id="tab5">{{#animate type="fadeIn" delay="200"}}{{>codepad}}{{/animate}}</div>
+                    </div>
+                </div>
+            </div>
+       
+    
+</template>
+
+
+ 
+ <template name="project_Files">
+   
+    {{>uploads_section}}
+    
+    
+</template>
+
+ 
+
+    
+    
+    
+    <template name="scrumconversation"> <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Scrum Activity in <b><a class="activitySort" href="#">{{activitySort}}</a></b> order.</h3>
+        </div>
+        
+        <style>
+            .scroll {
+            height: 220px!important;
+    overflow: scroll;
+            }
+    </style>
+       
+       <!-- Later on create tabs for conversations, uploads, scrum {{#each teamchat}}
+            {{/each}}
+            {{else}} --> 
+        
+        <div class="panel-body scroll">
+         <ul class="list-group">
+           {{#each todos}}
+            {{>calevent}}<br>
+            {{else}}
+            
+            No Uploads Found ! 
+            {{/each}}
+             
+         </ul>
+         
+        </div>
+        
+        <div class="panel-footer">
+        </div>
+    </div>  </template>
+    
+    

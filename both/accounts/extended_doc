@@ -1,0 +1,37 @@
+Extending Templates
+
+With the aldeed:template-extension package, the built-in templates or sub-templates of any user-accounts UI package may be replaced by custom templates. The purpose is to create more sophisticated or specialized layouts or styling.
+
+In case of input fields the option template (see Form Fields Configuration) can be directly used without the need to rely on aldeed:template-extension package.
+
+Here is a simple example of a template you can use for a field of type 'select':
+
+<template name="customSelectTemplate">
+  <select id="at-field-{{_id}}" name="at-field-{{_id}}" data-something="{{options.someOption}}">
+    {{#each select}}
+    <option value="{{value}}">{{text}}</option>
+    {{/each}}
+  </select>
+</template>
+
+Custom properties that hold information about the look of the form may be attached to the options object of a field. It may then be used to change the output while looping the fields. Adding a divider might look like this:
+
+AccountsTemplates.addField({
+  _id: "address",
+  type: "text",
+
+  // Options object with custom properties for my layout. At the moment, there are
+  // no special properties; it is up the developer to invent them
+  options: {
+    // Put a divider before this field
+    dividerBefore: true
+  }
+});
+
+<template name="appAtInput">
+  {{#if options.dividerBefore}}<hr>{{/if}}
+
+  {{> Template.dynamic template=templateName}}
+</template>
+
+Template.appAtInput.replaces("atInput");

@@ -1,0 +1,19 @@
+
+          <hr>
+          <label style="display:block; text-align:right; background-color:#e7e7e7; padding:5px;">Support</label>
+          <li> <a href="{{pathFor 'help'}}"><i class=" fa fa-info-circle"></i> FAQ</a></li> 
+          <li> <a href="{{pathFor 'contactus'}}"><i class=" fa fa-life-saver"></i> Contact Us</a></li> 
+          
+          <hr>
+          <label style="display:block; text-align:right; background-color:#e7e7e7; padding:5px;">Community</label>
+          <li> <a href="#"><i class=" fa fa-sticky-note"></i> Office Message Board<span class="badge">For Subscribers</span></a></li>
+          <li> <a href="#"><i class=" fa fa-map-signs"></i> Office Tasking Board <span class="badge">For Subscribers</span></a></li>
+           <li> <a href="#"><i class=" fa fa-map"></i> Office Map <span class="badge">For Subscribers</span></a></li>
+          
+          <hr>
+          <label style="display:block; text-align:right; background-color:#e7e7e7; padding:5px;">Media Services</label>
+          <!-- FOR SUBSCRIBER LEVEL -->
+          <li> <a href="#"><i class=" fa fa-newspaper-o"></i> Newsletter <span class="badge">Future Release</span></a></li>
+          <li> <a href="#"><i class=" fa fa-photo"></i> Photo Gallery <span class="badge">Future Release</span></a></li> 
+          <li> <a href="#"><i class=" fa fa-share-alt"></i> Zapier/SMM <span class="badge">Future Release</span></a></li>  
+          

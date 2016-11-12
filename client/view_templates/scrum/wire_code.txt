@@ -1,0 +1,62 @@
+
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">+ Create a Task</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label>Task Description</label>
+              <input type="text" class="form-control" name="name" placeholder="Description">
+            </div>
+            
+            <div class="form-group">
+              <label>Status </label>
+              <p> dropdown with Active, Complete, Flagged, Sprint </p> 
+              
+              <div>Example of checkbox active value input</div>
+              
+              <ul>
+                  <li> <input type="checkbox" id="checker" for="name2">Flagged</input><input id="name2" name="name2"> 
+ </li>
+ <li> <input type="checkbox" id="checker" for="name1">Complete</input>
+ </li>
+</ul>
+
+<script> 
+
+document.getElementById('checker').onchange = function() {
+ if(this.checked===true){
+  document.getElementById("name2").disabled=false;
+  document.getElementById("name2").focus();
+ }
+ else{
+  document.getElementById("name2").disabled=true;
+ }
+};
+
+</script> 
+             </div> 
+            </div>
+            
+            
+            
+             <div class="form-group">
+              <input type="hidden" class="form-control" name="user" value="{{currentUser.username}}" disabled>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" data-action="add-item" class="btn btn-primary">Add Task</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  -->

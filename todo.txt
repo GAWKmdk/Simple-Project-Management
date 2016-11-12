@@ -1,0 +1,50 @@
+
+ESSENTIALS
+/////////////////////
+activity =  event type bkrd color, event type icon ++ for uploads, todo, chat
+
+accounts = add roles/subscription for top-level
+contact us = email 
+bug report = email
+FAQ = accordiant 
+Tutorial = modal 
+landing page = artwork
+
+email = invites
+communication - share for invite
+roles - more defined 
+register = reroute paypal = account type else 
+local storage = seek minimongo and ionic (eg Storedtokens = new Mongo.Collection(null);) 
+scrum = all boards + move to new board when complete/status change
+
+slatebox = add
+snippet = add 
+gantt = add
+
+contacts = sort by filters
+projects = sort by filters/ add members names to project card // add likes? 
+
+tooltips = all pages corrected
+calendar = correct ux cleaner and add time/ getdate
+
+notifications = berts for created event, created project, created contact, delete, edit, archive
+ webtempest ux = modals, calendar, comments, uploads, 
+ionic/cordova/android/ios = add configure for local storage if necessary
+
+sidebar = mobile friendly
+calendar = mobile friendly
+
+
+LATER RELEASE
+////////////////////////////
+newsletter = add/remove? 
+
+tasklist community = add
+messageboard company = add
+
+
+social media websites = add 
+
+profile = send direct message to user/email, display messages, and display invites?  
+
+

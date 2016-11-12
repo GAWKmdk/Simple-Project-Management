@@ -1,0 +1,5 @@
+mystor:device-detection
+
+If device is == defined type ()-> use Template. 
+
+https://github.com/mystor/meteor-device-detection

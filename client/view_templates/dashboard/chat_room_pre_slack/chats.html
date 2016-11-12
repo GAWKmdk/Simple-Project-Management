@@ -1,0 +1,24 @@
+<template name="chats">
+  <div class="panel panel-default push-down">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Community Channel
+      </h3>
+    </div>
+    <div class="panel-body" >
+      <div class="notes" style="min-height:200px;max-height:400px !important;overflow-y:scroll;">
+        {{#each chats}}
+          {{>chat}}
+        {{/each}}
+      </div>
+      <textarea placeholder="Chat directly with the team"  class="push-down col-md-12 hidden-sm hidden-xs form-group flitEdit"></textarea> <span><a class="clearChat">Clear All</a></span><br><span><a class="clearselfChat">Clear All Your Messages</a></span>
+      <span class="pull-right"><button type="button" class="btn btn-default saveChat">
+        Send
+      </button></span>
+    </div>
+  </div>
+</template>
+<template name="chat">
+  <small class="text-muted">{{formatdatetime date}}</small> - <small class="text-muted">{{ownerName}}</small><br/>
+  <span>{{note}}</span>  <br/>
+</template>

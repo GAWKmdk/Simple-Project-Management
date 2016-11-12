@@ -1,0 +1,276 @@
+
+<template name="project_Team">
+   
+    <div class="panel panel-default">
+       
+        <div class="panel-heading">
+            <h3 class="panel-title">Your Team:  </h3>
+        </div>
+        
+        <div class="panel-body">
+            {{>team_member_comment}}    
+            
+        </div>
+        <div class="panel-footer">
+        
+       
+        <hr>
+        
+              
+              <div class="row">
+               
+               <div class="col-md-8">
+                   {{>team_members}}
+               </div>
+               
+               <div class="col-md-4">
+                   {{>invited}} <br>
+                     {{>chats}}
+               </div>
+               
+           </div>
+                
+                   
+         
+               
+         
+        
+         
+        </div>
+    </div>
+    
+   
+    
+</template>
+
+<template name="team_member_comment">
+  
+  <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Your Team Planner Message Board: </h3> <br>
+            <div class="alert alert-warning alert-dismissable">
+    		
+			Use this for leaving messages related to team contacts, communication channels, or client references.  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button>
+		</div>
+       
+        
+           <div class="alert alert-warning alert-dismissable">
+    		
+			<i class="fa fa-bullhorn" aria-hidden="true"></i>
+               TOOLTIP: <br><br> <b> Use your Team Planner Message Board </b> for leaving messages related to team developments, communication briefs, accountancy assurances and any non-documentation records. <br> To avoid clutter on smaller monitors or tablet devices; use the archive button to store communications for later retrival. <br>  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button></div>
+       
+       
+        </div>
+        
+        
+        <div class="panel-body">
+           
+           <h5 class="text-muted">
+            <a href="#" class="addConversation"> Leave a Message +</a> </h5>
+            
+       <hr>
+       <table>
+          
+           <th><i class="fa fa-comments"></i></th>
+            <th>Message</th>
+             <th>Written On</th>
+            <th>Archive</th>
+              <th>Delete</th>
+            
+           <tbody>
+            <td class="col-md-2"></td>
+        <td class="col-md-4"></td>
+        <td class="col-md-2"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-1"></td>
+           
+           {{#each conversations }}
+           {{>teamchat}}
+           {{/each}}
+           </tbody>
+       </table>
+       
+           
+          
+            
+        </div>
+        <div class="panel-footer">
+        
+        
+        </div>
+    </div>
+    
+</template>
+
+<template name="teamchat">
+    
+    <tr>        
+       
+        <td class="col-md-2">{{username}}</td>
+        <td class="col-md-4"><a href="#" class="shorten"><i class="fa fa-quote-left"></i> {{note}} <i class="fa fa-quote-right"></i></a></td>
+        <td class="col-md-2">{{formatdate dateadded}}</td>
+        <td class="col-md-1"><button type="button" class="btn btn-default archiveConversation" ><i class="fa fa-minus-square-o "></i> Archive</button></td>
+        <td class="col-md-1"><a href="#" class="btn btn-default" id="deleteConversation"><i class="fa fa-trash"></i> Delete</a></td>
+        
+    </tr>
+       
+</template>
+
+ 
+
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<template name="team_members">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Active Team Members: </h3>
+            
+            
+           <div class="alert alert-warning alert-dismissable">
+    		
+			<i class="fa fa-bullhorn" aria-hidden="true"></i>
+               TOOLTIP: <br><br> Team Members who have accepted your invite will display here. <br><button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button></div>
+        </div>
+        
+        <div class="panel-body">
+            
+            <!-- Template for lead should be if project owner -->
+            {{#if isowner ..}}
+             <ul class="navigation">
+                    <li class="active">
+                        <a data-toggle="tab" href="#ownerinformation">
+                            <span class="glyphicon glyphicon-user"> Name </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#ownerrole">
+                            <span class="glyphicon glyphicon-cog"> Role </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#ownercompany">
+                            <span class="glyphicon glyphicon-envelope"> Company </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#owneremail">
+                            <span class="glyphicon glyphicon-calendar"> Email </span>
+                        </a>
+                    </li>
+                      <li>
+                        <a data-toggle="tab" href="#ownerphone">
+                            <span class="glyphicon glyphicon-calendar"> Phone </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="user-body">
+                    <div class="tab-content">
+                       <hr>
+                       <!-- edit this so when project created find: author and add username/company/role/etc --> 
+                       
+                        <div id="ownerinformation" class="tab-pane active">
+                            <h4>{{author}}</h4>
+                        </div>
+                        <div id="ownerrole" class="tab-pane">
+                            <h4>{{currentUser.profile.position}}</h4>
+                        </div>
+                        <div id="ownercompany" class="tab-pane">
+                            <h4>{{currentUser.profile.company}}</h4>
+                        </div>
+                        <div id="owneremail" class="tab-pane">
+                            <h4>{{currentUser.emails.[0].address}}</h4>
+                        </div>
+                        <div id="ownerphone" class="tab-pane">
+                            <h4>{{currentUser.profile.phone}}</h4>
+                        </div>
+                    </div>
+                </div> {{/if}}<br><hr>
+            
+             {{#each invited }}
+              
+                          {{>member_card}}
+              <br>
+              {{else}}
+              <br>
+              <h4>No active team members found.</h4>
+              {{/each}} 
+                      
+            
+        </div>
+        
+        <div class="panel-footer">
+            
+        </div>
+        
+    </div>
+    </template>
+    
+   <template name="member_card">
+      
+                <div class="user-body">
+                    <div class="tab-content">
+                       <hr>
+                        <div id="information">
+                            <h4>username:{{username}}</h4>
+                        </div>
+                        <div id="role" >
+                            <h4>position:{{profile.position}}</h4>
+                        </div>
+                        <div id="company" >
+                            <h4>company:{{profile.company}}</h4>
+                        </div>
+                        <div id="email">
+                            <h4>email:{{emails.[0].address}}</h4>
+                        </div>
+                        <div id="phone" >
+                            <h4>phone:{{profile.phone}}</h4>
+                        </div>
+                    </div>
+       </div>
+       
+   </template>
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+    
+    <template name="invited">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Current Invite List: </h3>
+            
+            <div class="alert alert-warning alert-dismissable">
+    		
+			<i class="fa fa-bullhorn" aria-hidden="true"></i>
+               TOOLTIP: <br><br> You can invite existing ProJTMS users here or send a new invite via email. <br> To assign a new Team Member a Team Role use the <b>Team Roles</b> features on your application menu to the left.<br>Team Roles are exclusive to Subscribers ! <br><button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button></div>
+        </div>
+        <div class="panel-body">
+          
+          <select name="userToInvite" id="userToInvite">
+              {{#each userList}}
+              <option value="{{_id}}">{{username}}</option>
+             {{else}}
+              <br>
+              <h4>No team members found to invite !</h4>
+              {{/each}}
+          </select>
+          <button href="#" class="inviteUser"><i class="fa fa-plus " >Invite User </i></button>
+          <hr>
+          
+          <table class="table table-bordered table-hover table-striped">
+          {{#each invited}}
+          <tr>
+          <td width="250px">{{username}}</td>
+          <td>{{#if isowner ..}} <i class="fa fa-trash removeUser" href="javascript:;"></i>{{/if}}</td>
+          </tr>
+          {{/each}}
+       </table>
+             
+            <!--  {{>team_member_card}} -->
+            
+            
+                
+        </div>
+        <div class="panel-footer">
+            
+        </div>
+    </div>
+    </template>

@@ -1,0 +1,48 @@
+
+<template name="project">
+    
+    
+    <div class ="col-md-4 center-block">
+      <div class="panel panel-default">         
+              
+              <div class="panel-heading">
+              <h3 class="panel-title">
+                  <p class="pull-right">
+                    
+                    <!--  <a class="archiveProject" href=""><i class="fa fa-archive archiveProject"></i></a> -->
+                       <a class="deleteConfirmation" href="#"><i class="fa fa-trash deleteConfirmation"></i></a>
+                                    
+                  </p>  
+                  <p>
+                                 <h5>
+                                     <a href="/projects/{{_id}}" id="fake_clem"><b>Project -</b> {{name}}</a><br>
+                                   
+                                   
+                                 </h5>
+                  </p>                                                        
+              </h3>              
+          </div>
+                
+      <div class="panel-body" align="center">
+          <small>              
+              <span><b>Holding for: </b> {{customer.name}}</span> <br>
+              <span><b>Due Date: </b> {{ datedue}}</span> <br>
+              <span><b>Last Updated: </b> {{lastupdate}}</span>            
+          </small>
+          <hr>              
+              <a class="btn btn-success btn-circle" href="/projects/{{_id}}" id="fake_clem">View Project</a>          
+              
+      </div>
+      
+        <div class="panel-footer">
+               <small>
+                  <!-- project.invited --> 
+                   <b>Created by: </b> <span class="label label-primary">{{author}}</span> <b>on</b>  <span class="label label-info">{{formatdate dateentered}}</span> <!-- {{#each invited}}<span class="label label-info">{{invited.username}}{{invited.name}}{{name}} {{username}}</span>{{/each}} <br> 
+                   Archive status: {{archived}} --> 
+               </small>         
+        </div>  
+         
+       </div>      
+        </div>
+    
+</template>

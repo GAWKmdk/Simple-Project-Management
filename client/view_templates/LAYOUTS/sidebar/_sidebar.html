@@ -1,0 +1,55 @@
+<template name="sidebar">
+
+
+ 
+<div class="col-md-2">
+   
+    <button class="btn-menu btn btn-default btn-toggle-menu" type="button">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    
+                    <br>
+                    <br>
+    
+        <h6 style="display:block; text-align:right;"><b><i class="fa fa-compass" aria-hidden="true"></i> ProJTMS</b></h6>
+      <hr>
+      
+      <ul class=" nav nav-sidebar">
+         
+          <label style="display:block; text-align:right; background-color:#e7e7e7; padding:5px; ">Management</label>
+          <li> <a href="{{pathFor 'dashboard'}}"><i class=" fa fa-cubes"></i> Projects  <!--<span class="badge badge-success">#{{countProjects}}</span>--></a></li>
+          
+          <li> <a href="{{pathFor 'listings'}}"><i class=" fa fa-group"></i> Clients <!--<span class="badge">#{{countContacts}}</span>--></a></li>
+          <hr>
+          <label style="display:block; text-align:right; background-color:#e7e7e7; padding:5px;">Admin</label>
+          
+         <!-- <li> 
+         <a href="{{pathFor 'archives'}}"><i class=" fa fa-archive"></i> Archive 
+         
+         </a></li> --> 
+          <!-- FOR SUBSCRIBER LEVEL --> 
+          <li> <a href="{{pathFor 'roles'}}"><i class=" fa fa-tasks"></i> Team Roles <span class="badge">For Subscribers</span></a></li>
+          <li><a href="{{pathFor 'archives'}}"><i class=" fa fa-archive"></i>View Project Archives <!--<span class="badge">#{{countArchive}}</span>--></a></li>
+          <!-- --> 
+          
+          
+               <hr>
+                <!-- {{>chats}} -->
+                      
+          <!-- FOR SUBSCRIBER LEVEL --> 
+          
+          <!--<li> <a href="{{pathFor 'email'}}"><i class=" fa fa-fa-sticky-note"></i> Email ?</a></li>  -->
+          <!-- <li> <a href="{{pathFor 'contacts'}}"><i class=" fa fa-group"></i> Scrum-board </a></li>
+          |todo|active|complete section|flagged|sprint --> 
+          
+           <!-- --> 
+          
+                      <!-- community chat window -->     
+          
+      </ul>
+    
+    
+    
+</div><br>
+
+</template> 

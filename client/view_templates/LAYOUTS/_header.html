@@ -1,0 +1,66 @@
+<template name="_header">
+
+
+ 
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+    
+     <div class="container-fluid">
+
+      <div class="navbar-header">
+       
+        
+       
+       <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> -->
+        
+        <a class="navbar-brand" href="{{pathFor 'dashboard'}}"><i class="fa fa-compass" aria-hidden="true"></i>
+  Project Management Solution</a>
+      </div>
+             
+      <div class="collapse navbar-collapse" id="main-nav">
+        {{#if currentUser}}
+         <script>
+          Bert.alert( 'Logged in Successfully', 'success', 'growl-bottom-right', 'fa-check' );
+          </script>
+          
+         
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{ currentUser.username }}  <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+               <li><a href="{{ pathFor 'profile' }}"><i class="fa fa-user"></i> User Profile</a></li>
+               <li><a href="{{ pathFor 'atChangePwd' }}"><i class="fa fa-ellipsis-h"></i> Change Password</a></li>
+                <li><a href="#" data-action="logout"><i class="fa fa-lock"></i> Sign Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        {{else}}
+         <script>
+          Bert.alert( 'Logged Out Successfully', 'success', 'growl-bottom-right', 'fa-check' );
+          </script>
+          <div class="navbar-right">
+            <a href="{{ pathFor 'atSignIn' }}" class="btn btn-default navbar-btn">Sign in</a>
+            <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a>
+          </div>
+        {{/if}}
+
+        {{#if currentUser}}
+        <ul class="nav navbar-nav navbar-right">
+      
+           <!--<li class="{{ isActiveRoute regex='home' }}"><a href="{{ pathFor 'home' }}"><i class="fa fa-hand-peace-o"></i> Info Advert</a></li>-->  
+          <li class="{{ isActiveRoute regex='dashboard' }}"><a href="{{ pathFor 'dashboard' }}"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+        </ul>
+        {{/if}}
+      </div>
+
+    </div>
+  </nav>
+  
+
+</template>

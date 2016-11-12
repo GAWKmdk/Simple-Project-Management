@@ -1,0 +1,4 @@
+How can I use a remote database locally
+
+EX
+MONGO_URL="mongodb://:@dogen.mongohq.com:10077/" meteor

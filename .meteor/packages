@@ -1,0 +1,69 @@
+# Meteor packages used by this project, one per line.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+reactive-var 
+less
+accounts-password
+useraccounts:bootstrap
+useraccounts:core
+accounts-ui
+accounts-facebook 
+accounts-meetup
+accounts-github 
+alanning:roles
+zimme:iron-router-active
+cmather:handlebars-server@0.2.0
+dburles:collection-helpers
+reywood:publish-composite
+momentjs:moment
+matb33:collection-hooks
+easy:search
+anti:fake
+cunneen:mailgun
+iron:router@1.0.0
+yasinuslu:blaze-meta
+aldeed:collection2
+aldeed:autoform
+useraccounts:iron-routing
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+force-ssl 
+mrt:moment
+chhib:selectize-bootstrap-3
+dsyko:jquery-ui-touch-punch
+mrt:jquery-ui
+mrt:fullcalendar
+drewy:datetimepicker
+cfs:standard-packages
+cfs:filesystem
+standard-minifier-css
+standard-minifier-js
+matb33:bootstrap-glyphicons
+
+#ADMIN#
+
+
+#UI/UX MUSTS
+fortawesome:fontawesome
+ themeteorchef:bert
+  webtempest:animate
+#bozhao:bootstrap-material-design-data
+#mrt:flat-ui-less
+
+#FOR LATER RELEASE
+#mrt:slatebox
+#joshowens:shareit
+#email
+# fac:svg-gantt

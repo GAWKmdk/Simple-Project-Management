@@ -1,0 +1,355 @@
+
+<template name="firsttimeuser">
+    
+    <style>
+    
+    @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+/* written by riliwan balogun http://www.facebook.com/riliwan.rabo*/
+.board{
+    width: 75%;
+margin: 60px auto;
+height: 500px;
+background: #fff;
+/*box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
+}
+.board .nav-tabs {
+    position: relative;
+    /* border-bottom: 0; */
+    /* width: 80%; */
+    margin: 40px auto;
+    margin-bottom: 0;
+    box-sizing: border-box;
+
+}
+
+.board > div.board-inner{
+    background: #fafafa url(http://subtlepatterns.com/patterns/geometry2.png);
+    background-size: 30%;
+}
+
+p.narrow{
+    width: 60%;
+    margin: 10px auto;
+}
+
+.liner{
+    height: 2px;
+    background: #ddd;
+    position: absolute;
+    width: 80%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #555555;
+    cursor: default;
+    /* background-color: #ffffff; */
+    border: 0;
+    border-bottom-color: transparent;
+}
+
+span.round-tabs{
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    border-radius: 100px;
+    background: white;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+}
+
+span.round-tabs.one{
+    color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
+}
+
+li.active span.round-tabs.one{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: rgb(34, 194, 34);
+}
+
+span.round-tabs.two{
+    color: #febe29;border: 2px solid #febe29;
+}
+
+li.active span.round-tabs.two{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #febe29;
+}
+
+span.round-tabs.three{
+    color: #3e5e9a;border: 2px solid #3e5e9a;
+}
+
+li.active span.round-tabs.three{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #3e5e9a;
+}
+
+span.round-tabs.four{
+    color: #f1685e;border: 2px solid #f1685e;
+}
+
+li.active span.round-tabs.four{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #f1685e;
+}
+
+span.round-tabs.five{
+    color: #999;border: 2px solid #999;
+}
+
+li.active span.round-tabs.five{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #999;
+}
+
+.nav-tabs > li.active > a span.round-tabs{
+    background: #fafafa;
+}
+.nav-tabs > li {
+    width: 20%;
+}
+/*li.active:before {
+    content: " ";
+    position: absolute;
+    left: 45%;
+    opacity:0;
+    margin: 0 auto;
+    bottom: -2px;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    z-index: 1;
+    transition:0.2s ease-in-out;
+}*/
+.nav-tabs > li:after {
+    content: " ";
+    position: absolute;
+    left: 45%;
+   opacity:0;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 5px solid transparent;
+    border-bottom-color: #ddd;
+    transition:0.1s ease-in-out;
+    
+}
+.nav-tabs > li.active:after {
+    content: " ";
+    position: absolute;
+    left: 45%;
+   opacity:1;
+    margin: 0 auto;
+    bottom: 0px;
+    border: 10px solid transparent;
+    border-bottom-color: #ddd;
+    
+}
+.nav-tabs > li a{
+   width: 70px;
+   height: 70px;
+   margin: 20px auto;
+   border-radius: 100%;
+   padding: 0;
+}
+
+.nav-tabs > li a:hover{
+    background: transparent;
+}
+
+.tab-content{
+}
+.tab-pane{
+   position: relative;
+padding-top: 50px;
+}
+.tab-content .head{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 25px;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+.btn-outline-rounded{
+    padding: 10px 40px;
+    margin: 20px 0;
+    border: 2px solid transparent;
+    border-radius: 25px;
+}
+
+.btn.green{
+    background-color:#5cb85c;
+    /*border: 2px solid #5cb85c;*/
+    color: #ffffff;
+}
+
+
+
+@media( max-width : 585px ){
+    
+    .board {
+width: 90%;
+height:auto !important;
+}
+    span.round-tabs {
+        font-size:16px;
+width: 50px;
+height: 50px;
+line-height: 50px;
+    }
+    .tab-content .head{
+        font-size:20px;
+        }
+    .nav-tabs > li a {
+width: 50px;
+height: 50px;
+line-height:50px;
+}
+
+.nav-tabs > li.active:after {
+content: " ";
+position: absolute;
+left: 35%;
+}
+
+.btn-outline-rounded {
+    padding:12px 20px;
+    }
+}
+
+    </style>
+    
+    
+    <script>
+    
+    (function(){
+$('a[title]').tooltip();
+});
+    
+    </script>
+    
+    
+    <section style="background:#efefe9;">
+        
+            <div class="row">
+                <div class="board">
+                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+                    <div class="board-inner">
+                    <ul class="nav nav-tabs" id="myTab">
+                    <div class="liner"></div>
+                     <li class="active">
+                     <a href="#home" data-toggle="tab" title="welcome">
+                      <span class="round-tabs one">
+                              <i class="glyphicon glyphicon-home"></i>
+                      </span> 
+                  </a></li>
+
+                  <li><a href="#profile" data-toggle="tab" title="profile">
+                     <span class="round-tabs two">
+                         <i class="glyphicon glyphicon-user"></i>
+                     </span> 
+           </a>
+                 </li>
+                 <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+                     <span class="round-tabs three">
+                          <i class="glyphicon glyphicon-gift"></i>
+                     </span> </a>
+                     </li>
+
+                     <li><a href="#settings" data-toggle="tab" title="blah blah">
+                         <span class="round-tabs four">
+                              <i class="glyphicon glyphicon-comment"></i>
+                         </span> 
+                     </a></li>
+
+                     <li><a href="#doner" data-toggle="tab" title="completed">
+                         <span class="round-tabs five">
+                              <i class="glyphicon glyphicon-ok"></i>
+                         </span> </a>
+                     </li>
+                     
+                     </ul></div>
+
+                     <div class="tab-content">
+                      <div class="tab-pane fade in active" id="home">
+
+                          <h3 class="head text-center">Welcome to ProTJMS<sup>™</sup> <span style="color:#f48260;"></span></h3>
+                          <label>This Tutorial will show you how to create your first Project ...</label>
+                          <p class="narrow text-center">
+                              Lets Get you started! <br>
+                              <b>H</b>ead to the Dashboard and in "Create a New Project", type the name of your <b>First Project</b>. Don't worry you can edit the details like what company it is for, who are the team members and add important dates afterwards ! <br>
+                              Now lets click on the our Project to start managing the project ! * click on image button *  
+                          </p>
+                          
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> View your First Project <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                      </div>
+                      <div class="tab-pane fade" id="profile">
+                          <h3 class="head text-center">Your FIRST PROJECT<sup>™</sup> </h3>
+                          <label> Congratulations you built your First Project, now its time to learn all the features of ProTJMS and manage your Team effectively.</label>
+                          <p class="narrow text-center">
+                              Lets start by adding some team members. Click the invite tile *insert picture * and enter the emails of the new memeber -- an email will send them a link. If you already have members select them from the drop down menu. An invitation request will be sent to them. If you want to set project privileges and privacy's for your team member you can. Using the Roles section (For *startup subscribers*) *insert photo* -- you can customize the privacy and privileges by simply checking or unchecking the appropriate project control levels.    
+                          </p>
+                          
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> Great, I've added Team Members and set their privileges, whats next? <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                          
+                      </div>
+                      <div class="tab-pane fade" id="messages">
+                          <h3 class="head text-center">using the CALENDAR and SCRUM effectively.</h3>
+                          <p class="narrow text-center">
+                              Being able to establish deadlines is crucial to any projects success. With ProTJMS, we've made it simple for you to leave descriptions to dates. Simple click the "add a new date" button *insert photo*, provide the description for the date and your set. You can also add custom color labels to the dates to make it easier to organize. <br>
+                              Using SCRUM is also important to managing the workflow of larger-multi-member projects. With ProTJMS the SCRUM methodology is easier then ever. Simple fill in important descriptions for each of the 5 columns heads [To-do, Active, Completed, Flagged or Sprint]. To-do are for project pieces not yet started, Active are for projects currently being worked on, complete are for projects that have been finished and not flagged, Flagged are projects that require attention, these should be coordinate with the appropriate calendar color label. Finally sprint are project pieces that need to be done ASAP or for later meetings/development. <br>
+                              For each project piece denoted in the column; you can change it's column status at any time by selecting the piece and editing the descriptions inside of them. How easy is that ?  
+                          </p>
+                          
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> Awesome, I've got my projects sorted and scheduled to the calendar, what else can I do ? <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                      </div>
+                      <div class="tab-pane fade" id="settings">
+                          <h3 class="head text-center">leaving MESSAGES, CODE SNIPPETS and FILES</h3>
+                          <p class="narrow text-center">
+                              ProTJMS makes it easy to share FILES, SNIPPETS and MESSAGES so no one in your team is without mission critical data. <br> By using the Upload Files tile *insert image* you can store project files for all team members to download.  To prevent version conflicts avoid uploading multiple copies of the same document or label them appropriate with date and details. <br>
+                              To leave a message for your team simply use the Comment/Remarks tile *insert photo*. You can edit or delete messages from the same tile.<br>
+                              To leave a code snippet for peer-review, simply use the snippet tile to upload your code in HTML/JS formatting. <br>
+                              ProTJMS also makes it easy to leave company-wide messages to non-project members with the convenient side chat window *insert photo* and post-it wall *insert photo* for real-time conversations and monitoring.
+                          </p>
+                          
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> Hurray, I am well versed in getting my points across with my team and providing feedback, whats' left to know ? <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                      </div>
+                      <div class="tab-pane fade" id="doner">
+  <div class="text-center">
+    <i class="img-intro icon-checkmark-circle"></i>
+</div>
+<h3 class="head text-center">the Archive Feature <span style="color:#f48260;"></span> </h3>
+<p class="narrow text-center">
+  The archiving features is the last important features of ProTJMS and it allows you to move a complete project into a seperate part of the ProTJMS app freeing up attention for new and current projects. <br>
+  Using the archive feature is as simple as selecting "archive this project" from the project description *insert photo*. <br>
+  You can access archive projects anytime by going to Archive from the side-menu. From the archives you can view all files and communications from the project. You can also forward the project as an email for your own email-client storage or "un-archive" the project if you wish to blow the dust of its cover and bring it back to life. <br><br>
+  
+  <a href="" class="btn btn-success btn-outline-rounded green"> Wonderful, you are now ready to use ProJTMS on your own. Enjoy your time with our app and if you have any questions or comments please contact use at <a>Insert Email:mailto</a> <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+  
+</p>
+                         </div>
+                    <div class="clearfix"></div></div></div>
+</div>
+        </section>
+    
+    
+</template>

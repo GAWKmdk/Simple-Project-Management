@@ -1,0 +1,3 @@
+Where can I create a favicon
+
+Upload your image to http://realfavicongenerator.net/ and place the resulting images in public/images/favicons

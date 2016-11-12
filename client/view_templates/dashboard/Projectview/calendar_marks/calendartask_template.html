@@ -1,0 +1,363 @@
+<template name="caltask">
+  <div class="modal fade in show" id="editCalTask" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close closeTask" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id=""> Workplan Calendar Tasks</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="name">Adding Post to Calendar:</label>
+            <select class="form-control input input-md-4 taskTitle" id="taskTitle" name="taskTitle">
+              <option value="">Select your Post Type: </option>
+                    <option class="select-dash" disabled="disabled">----</option>
+                    
+              <option value="milestone">Add an Event Milestone</option>
+              <option value="event_notice">Add an Event Notice</option>
+              <option value="general_meeting">Add a General Meeting</option>
+               <option value="due_date">Add a Due Date Group Reminder</option>
+               <option value="hours_assigned">Assign Work Time</option>
+               
+               <option class="select-dash" disabled="disabled">----</option>
+              
+              <option value="worksite_maintance">Add a Maintance Call</option>
+              <option value="training">Add a Training Log</option>
+              <option value="client_meeting">Add a Client Meeting</option>
+              <option value="staff_holiday">Add a Staff Holiday</option>
+              
+               <option class="select-dash" disabled="disabled">----</option>
+               
+             <!-- <option value="todo">Post a Todo Task </option> --> 
+                <option value="active">Add an Active Status Notice </option>
+                <option value="flagged">Add a Flagged Task</option>
+                <option value="review">Add a Review Task</option>
+                <option value="sprint">Add a Sprint Task</option>
+                 <option value="completed">Add a Complete Status Notice</option>
+                 <br>
+                
+                
+                
+            </select>
+          </div>
+          
+          <!-- Display order
+          
+          Immediate: Duedate, Flagged, sprint
+          Important: Notice, Review, hours assigned
+           Attentive: meeting, client, maintance, training
+          Mid-level: active, completed, milestone,holiday -->
+          
+          
+          {{#if evttype_duedate }}
+          <div class="form-group">
+           <label class="label label-default">Add a Due Date Group Reminder:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Due Date Headline" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+              
+              <label class="label label-default"> Enter applicable staff </label>
+             <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                              
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          {{#if evttype_companysports }}
+          <div class="form-group">
+            <label class="label label-default">Add a Flagged Task:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Project Part" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location for Review (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          {{#if evttype_socialmediacampaign }}
+          <div class="form-group">
+            <label class="label label-default">Add a Sprint Task:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Project Part" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value="">
+                           
+                               
+                               <br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location for Review (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          
+          
+          
+          
+           {{#if evttype_eventnotice }}
+          <div class="form-group">
+            <label class="label label-default">Add an Event Notice:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Notice Statement" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Project Details/Information"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+           {{#if evttype_reviewmeeting }}
+          <div class="form-group">
+            <label class="label label-default">Add a Review Task:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Project Part" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location for Review (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          
+           {{#if evttype_hoursworked}}
+          <div class="form-group">
+           
+            <label class="label label-default">Assign Work Time:</label><br><br>
+            
+             <input type="number" class=" form-control name focus" id="name" placeholder="Enter Hours Assigned"
+            value=""><br/>
+            
+             <input type="text" class=" form-control information focus" id="information" placeholder="Enter Project Details/Information"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location"
+            value=""> <br/>
+                     
+          </div>
+          {{/if}}
+          
+          
+          
+          {{#if evttype_genericmeeting }}
+          <div class="form-group">
+            <label class="label label-default">Add a General Meeting:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Meeting Title" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Meeting Subject"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          
+          
+          
+           {{#if evttype_location}}
+          <div class="form-group">
+            <label class="label label-default">Add a Maintance Call:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Type of Maintance" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Security Details (who,went,what)"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          {{#if evttype_training }}
+          <div class="form-group">
+            <label class="label label-default">Add a Training Log:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Focus of Training" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+           {{#if evttype_clientmeeting }}
+          <div class="form-group">
+            <label class="label label-default">Add a Client Meeting:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Clients Name" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Clients Company and Purpose "
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          
+          {{#if evttype_milestone}}
+          <div class="form-group">
+           
+            <label class="label label-default">Add an Event Milestone:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Description" value=""><br/>
+            
+             <input type="text" class=" form-control information focus" id="information" placeholder="Enter Project Details/Information"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location"
+            value=""> <br/>
+            
+          </div>
+          {{/if}}
+          
+                   
+          
+          
+          {{#if evttype_award }}
+          <div class="form-group">
+            <label class="label label-default">Add a Complete Status Notice:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Project Part" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location for Review (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          
+          {{#if evttype_launchnch }}
+          <div class="form-group">
+            <label class="label label-default">Add an Active Status Notice:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Project Part" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location for Review (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+          
+          
+          {{#if evttype_holiday }}
+          <div class="form-group">
+            <label class="label label-default">Add a Staff Holiday:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Holiday Description" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Length [From Date - To Date]"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter Replacement Contact (If Applicable)"
+            value=""> <br/>
+          </div>
+          {{/if}}
+          
+         
+                
+         
+        <!--  {{#if evttype_staffparty }}
+          <div class="form-group">
+            <label class="label label-default">Post a Todo Task:</label><br><br>
+            
+            <input type="text" class=" form-control name focus" id="name"
+            placeholder="Enter Project Part" value=""><br/>
+            
+            <input type="text" class=" form-control information focus" id="information" placeholder="Enter Additional Details"
+            value=""><br/>
+                
+                               <input type="text" class=" form-control staff focus" id="staff" placeholder="Enter Staff Name(s) (If Non-specific)"
+            value=""><br/>
+                                
+            <input type="text" class=" form-control location focus" id="location" placeholder="Enter a Location for Review (If Needed)"
+            value=""> <br/>
+          </div>
+          {{/if}} -->
+          
+          
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger deleteCalTask" data-dismiss="modal">Remove</button>
+          <button type="button" class="btn btn-default closeTask" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary saveCalTask">Save Changes</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</template>

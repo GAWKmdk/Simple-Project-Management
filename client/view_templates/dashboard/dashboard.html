@@ -1,0 +1,146 @@
+<template name="dashboard">
+ 
+ <script>
+      
+         fake_clem = false;
+    
+    </script>
+ 
+ {{#if projectToDelete}}
+ {{>delconfirm}}
+ {{/if}}
+ 
+<!--{{#if archiveProject}}
+ {{>archiveapprove}}
+ {{/if}}-->
+ 
+  <div class="template-dashboard">
+               
+                     <div class="page-header">
+                        
+                       <!--  <div class="jumbotron"><h2><i class="fa fa-group" aria-hidden="true"></i> Your Projects</h2></div> -->
+                      
+
+                           
+                                       
+          <ol class="breadcrumb">
+        <li class="active"><a href="{{pathFor 'profile'}}"><i class="fa fa-user"></i> <!--configure signup-signin with custom registration to match profile{{user}}--> {{ currentUser.username }} </a></li> 
+              <li class=""><i class="fa fa-cubes" aria-hidden="true"></i> Projects <span class="badge badge-success">{{projectCount}}</span> </li> <br>  
+       
+                         </ol>      </div>
+                         
+                            
+           <div class="alert alert-info alert-dismissable">
+    		
+			<i class="fa fa-bullhorn" aria-hidden="true"></i>
+ TOOLTIP: <br><br>Project details can be edited directly through their <b>General Details</b> tab.  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button>
+		</div>
+      
+      
+      <div class="page-body-header">
+          
+          <div class="row">
+          
+          <div class="col-md-8">
+        <p> 
+          <style>
+              .setup_input {
+                  border:none;
+                  height:45px;
+                  width:400px;
+                  font-size:16pt;
+                  
+              }
+         </style>
+          
+          <input class="setup_input noborder projectname" type="text" name="projectNameEnter" id="projectNameEnter" placeholder="Create a New Project " value="">
+          </p>  </div>
+      
+    <div class="col-md-4" align="right">
+     
+       <select class="sorting">
+      <option value="lastupdate">Most Recent</option>
+     <option value="dateentered">First Entered</option>
+     <option value="datedue">Due Date</option>
+     
+     <option value="nameasc">Project Name Asc</option>
+     <option value="namedesc">Project Name Desc</option>
+     
+     <option value="customerasc">Customer Name Asc</option>
+     <option value="customerdesc">Cusomer Name Desc</option>
+     
+     <option value="authorasc">Author Asc</option>
+     <option value="authordesc">Author Desc</option>
+    
+   
+  </select>
+          
+          <span class="btn btn-default " > {{> EasySearch.Input index=ProjectIndex }} <i class="fa fa-search" aria-hidden="true"> </i>
+</span> <br>
+        
+        
+        </div>
+        
+           {{> EasySearch.Pagination index=ProjectIndex customRenderPagination="paginate2" maxPage=50 prevAndNext=true  }}
+           
+           </div>
+       
+            
+              <hr>
+        
+        <div class="row">
+          <div class="col-md-12">
+           <div class="page-body">
+           
+           {{#transition in="fadeInUp" out="bounceOutDown"}}
+           {{#EasySearch.Each index=ProjectIndex placeholder="Search by name, company, role, email, country, phone or username" }}
+             
+             
+              {{>project}}
+              
+         
+           <!--  {{/each}} --> 
+              {{/EasySearch.Each}}
+              {{/transition}}
+              
+              </div>
+              
+             
+              
+              
+              </div>
+              
+               <hr>
+              
+  
+      </div>
+           
+      
+      
+      </div>
+      
+      
+      
+      
+    </div>
+  
+</template>
+
+
+<template name="paginate2">
+    
+    
+     
+ 
+     <ul class="pagination">
+         <!-- <li><a href="#" class="">&lt;&lt;</a></li>
+          <li><a href="#" class="">&lt;</a></li>-->
+          {{#each page}}
+         <li class="page {{pageClasses this}}"><b>{{content}}</b></li>
+                 {{/each}}
+          <!--<li><a href="#" class="">&gt;</a></li>
+          <li><a href="#" class="">&gt;&gt;</a></li>-->
+</ul>
+    
+</template>
+

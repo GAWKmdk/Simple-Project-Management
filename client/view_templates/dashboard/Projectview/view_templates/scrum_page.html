@@ -1,0 +1,262 @@
+<template name="project_Scrumboard">
+  
+  <style>
+      
+ul {
+	list-style: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+input {
+  outline: none;
+}
+
+li {
+  cursor: default;
+}
+
+.group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.shownOnHover {
+  visibility: hidden;
+}
+
+/* tasks list */
+  .all-lists {
+    display: flex;
+  }
+
+  .list {
+    
+    height: 100%;
+    margin: 10px 0 5px 10px;
+
+    background: #E2E4E6;
+    min-width: 240px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #4D4D4D;
+  }
+
+  /* add task */
+
+  .add-task {
+    margin: 20px 0 0 0;
+  }
+
+  /* list item specifics */
+
+    .list-item {
+      border: 1px solid #000000;
+      border-radius: 5px;
+      padding: 5px 5px;
+      min-width: 200px;
+      min-height: 44px;
+      cursor: move;
+      background: #EDEFF0;
+      margin: 10px 0;
+    }
+
+    /* elements of list items */
+
+      .list-button {
+        width: 32px;
+        margin: 0 0 0 2px;
+        cursor: pointer;
+        float: right;
+      }
+
+      .list-item-text {
+        min-width: 100px;
+        float: left;
+        display: block;
+      }
+
+    /* draggable related css */
+
+      .dragged {
+          
+        /*transform: rotate(5deg);*/
+        background-color: #D3FCDB;
+        
+      }
+
+      .droppable {
+        width: 240px;
+        margin: 10px 0;
+        
+        background: #cccccc;
+        border-radius: 5px;
+      }
+
+/* chekboxes or lack thereof*/
+
+  .hidden-checkbox {
+    display: none;
+  }
+
+  .checked .list-item-text{
+    color: #bbbbbb;
+    text-decoration: line-through;
+  }
+
+  .checked button {
+    background: #999999;
+    border: 1px solid #777777;
+  }
+
+ /* .hide-completed {
+    margin: 20px 0 10px 0;
+    padding: 5px 10px;
+    display: inline-block;
+    cursor: pointer;
+    background: #62A1C6;
+  }
+
+  .hide-completed-checkbox {
+    width: 20px;
+  } */
+
+
+li.default-cursor {
+  cursor: auto;
+}
+    </style>
+  
+   <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Your Scrumboard: </h3> <br>
+            
+          <div>{{> newList}}</div>
+        </div>
+        
+         <div class="panel-body">
+         
+          <div class='container-fluid'>
+         <div class="group allLists all-lists">
+      {{> allLists}}
+       </div>
+             </div>
+         
+       </div>  
+       
+        <div class="panel-footer">
+            
+        </div>
+    </div>
+   
+   
+    
+</template>
+
+
+<template name='newList'>
+<form class='addList add-list form-inline'>
+    <div class='form-group'>
+      <label class='sr-only' for='newListTitle'>Generate a new Column List</label>
+      <input class='form-control' id='newListTitle' 
+             type='text' placeholder='Enter Board Title..'/>
+    </div>
+  </form>
+</template> 
+
+
+
+<template name='allLists'>
+ 
+  {{#each lists}}
+    <ul class='list'>
+      <h5>{{title}}</h5>
+      
+     
+      
+    <button class='btn btn-danger list-button 
+                      removeList  col-md-2'>
+      <i class='fa fa-remove'></i>
+    </button>
+    
+     <!-- edit task -->
+    <button class='btn btn-info list-button 
+                       editList  col-md-2'>
+      <i class='fa fa-edit'></i>
+    </button>
+     
+       <br>
+     
+        {{> addTask}}
+        {{> hack}}
+     
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  {{/each}}
+
+  
+</template>
+
+
+<template name='task'>
+ 
+   <li class='row list-item group {{#if checked}}checked{{/if}}'>
+
+   <span class='col-md-3 list-item-text'>{{text}}</span>
+
+    <!-- delete task -->
+    <button class='btn btn-danger list-button 
+                       shownOnHover removeTask col-md-2'>
+      <i class='fa fa-remove'></i>
+    </button>
+    
+    <!-- edit task -->
+    <button class='btn btn-info list-button 
+                       shownOnHover  col-md-2'>
+      <i class='fa fa-edit'></i>
+    </button>
+    
+    <!-- archive task
+    <button class='btn btn-warning list-button 
+                       shownOnHover  col-md-2'>
+      <i class='fa fa-archive'></i>
+    </button> -->
+
+    <!-- mark as complete -->
+    <button for='markAsComplete' class='btn btn-success list-button 
+                                        shownOnHover toggleChecked 
+                                        col-md-2'>
+      {{#if checked}}
+        <i class='fa fa-minus'></i>
+      {{else}}
+        <i class='fa fa-check'></i>
+      {{/if}}
+      <input class='hidden-checkbox' type='checkbox' checked='{{checked}}' 
+             name='markAsComplete'>
+    </button>
+
+  </li>
+ 
+   
+    
+</template>
+
+<template name='addTask'>
+  <form class='addTask add-task form-inline'>
+    <div class='form-group'>
+      <label class='sr-only' for='newTaskText'>Add a Task</label>
+      <input class='form-control' id='newTaskText' name='newTaskText' 
+             type='text' placeholder='Add a Board Task'/>
+    </div>
+  </form>
+</template>
+
+<template name='hack'>
+
+</template>
+

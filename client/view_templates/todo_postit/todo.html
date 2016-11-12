@@ -1,0 +1,94 @@
+<template name="todolist">
+  <div class="template-todo">
+  
+  <div class="page-header">
+        <div class="jumbotron"><h2><i class="fa fa-sticky-note" aria-hidden="true"></i> Post-it Wall</h2></div>
+      
+      <div>
+                  
+          <ol class="breadcrumb">
+        <li class="active"><a href="{{pathFor 'profile'}}"><i class="fa fa-user"></i> <!--configure signup-signin with custom registration to match profile{{user}}--> {{ currentUser.username }} </a></li> 
+       <li class=""><a href="{{pathFor 'dashboard'}}"><i class="fa fa-tachometer" aria-hidden="true"></i> Post-it Wall </a></li> <br>  
+       
+    </ol> 
+          
+      </div>
+      
+    
+       <div class="page-actions pull-right">
+        <btn class="btn btn-primary" data-toggle="modal" data-target="#addItemModal">+ Create a Task</btn><br>
+      </div>
+      
+    </div>
+
+   <h4><b>Current Build-List for Internal Use</b></h4><br>
+    <ul class="list-group">
+      {{#each items}}
+       
+       <style>
+        
+        [name=todoItem]{
+    border:none;
+    font-size: 100%;
+    padding:0.15em;
+}
+           
+           [name=todoItem]:hover {
+               
+           }
+           
+           [name=todoItem]:focus {
+            
+               background-color: #f9f9f9;
+    cursor:default;
+    outline:none;
+               
+           }
+           
+   
+        
+        </style>
+       
+        <li class="list-group-item"><span class="label label-default">Rank: {{ rating }}</span> | <span class="label label-default">User: {{ user }}</span><button class="delete" style="float: right;"> X</button><hr><b>Description:</b> <input name="todolist" type="text" value="{{ name }}" /> <br><span class="label label-default">Created: {{ createdAt }}</span></li>
+      {{/each}}
+    </ul>
+
+  </div>
+  
+  
+  
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">+ Create a Task</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label>Task Description</label>
+              <input type="text" class="form-control" name="name" placeholder="Name of Item">
+            </div>
+            <div class="form-group">
+              <label>Attention Rating </label>
+              <input type="number" class="form-control" name="rating" placeholder="Rating">
+            </div>
+             <div class="form-group">
+              <input type="hidden" class="form-control" name="user" value="{{currentUser.username}}" disabled>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" data-action="add-item" class="btn btn-primary">Add Task</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+</template>
