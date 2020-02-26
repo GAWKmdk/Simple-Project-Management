@@ -36,7 +36,7 @@ Conversate.allow({
     remove: function(){
         return true;
     }
-})
+ })
 
 
 Conversate.helpers({

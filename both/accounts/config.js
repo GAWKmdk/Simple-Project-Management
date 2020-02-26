@@ -36,7 +36,7 @@ AccountsTemplates.configure({
     
     //defaults
     //defaultTemplate: '/home',
-   // defaultLayout: 'appLayout',
+    //defaultLayout: 'appLayout',
 
     // Hooks
     //onLogoutHook: myLogoutFunc,
@@ -120,8 +120,8 @@ AccountsTemplates.addFields([
         errStr: 'Select a Subscription Modal',
         func: function(value){
             if (Meteor.isClient) {
-                    console.log("Validating subscription order..." + value);
-                Bert.alert( 'Validating Subscription Order', 'info', 'growl-bottom-right', 'fa-check-circle' );
+                    console.log("Logging in..." + value);
+                Bert.alert( 'Signing In ...', 'info', 'growl-bottom-right', 'fa-check-circle' );
                     this.setSuccess();
                     // or this.setError(userExists);
                     this.setValidating(false);

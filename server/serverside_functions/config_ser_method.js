@@ -69,10 +69,15 @@ Meteor.startup(function() {
         }
          //autoupdate duedate 
          
-           //  calevent.type = 'duedate';
+           
+          // Run 'addCalEvent':function (calevent) {
+        // if(!calevent.type) {
+            //  calevent.type = 'duedate';
              //  calevent.title =  date;
-        
-       //  return Calevents.insert(calevent);
+        // }
+         //  return Calevents.insert(calevent);
+     //},
+           
           
       });
     },'updateProjectNotes': function (id, notes) {
@@ -162,6 +167,15 @@ Meteor.startup(function() {
         }
       })
     },
+     
+     ////// SCRUMBOARD
+    // {
+     
+     // Add project scrum - collection
+                        // id 
+                          // type - update type 
+     
+ //},
     
      'removeCalEvent':function(id){
       return Calevents.remove({_id:id});

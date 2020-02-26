@@ -1,0 +1,149 @@
+
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+<template name="uploads_section">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Your Projects' File Locker:</h3>
+        </div>
+        <div class="panel-body">
+            {{>uploads}}
+            <hr>
+              <div class="alert alert-warning alert-dismissable">
+    		
+			Use this for leaving documentation reference regarding read-order, version-controls, or proofing marks.  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button>
+		</div>
+        </div>
+        
+        <!--
+        <div class="panel-body">
+           
+           <h5 class="text-muted">
+            <a href="#" class="addDocumentation"> Leave a notice +</a> </h5>             
+       <hr>
+       <table>
+           
+           <th><i class="fa fa-folder"></i></th>
+            <th>Version Note</th>
+             <th>User</th>
+            <th>Date</th>
+              <th>Archive</th>
+              <th>Delete</th>
+            
+           <tbody>
+            <td class="col-md-4"></td>
+      
+        <td class="col-md-4"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-1"></td>
+        <td class="col-md-1"></td>
+           
+            {{#each converse}}
+           {{>filechat}}<br>
+           {{/each}}
+           </tbody>
+       </table>
+        </div>
+        <div class="panel-footer">
+             
+        </div> --> 
+    </div> 
+    </template>
+    
+    
+    
+    <template name="filechat">
+        
+    <tr>        
+      
+       <td class="col-md-4">{{name}}</td>
+      
+        <td class="col-md-4">{{note}}</td>
+        <td class="col-md-1">{{username}}</td>
+        <td class="col-md-1">{{formatdate dateadded}}</td>
+        <td class="col-md-1"><button type="button" class="btn btn-default archiveFileConversation"><i class="fa fa-minus-square-o "></i> Archive</button></td>
+        <td class="col-md-1"><a href="#" class="btn btn-default" id="deleteConversation"><i class="fa fa-trash"></i> Delete</a></td><br>
+        
+    </tr>    
+</template> 
+    
+    
+    
+    <template name="uploads">
+       
+       
+       <style>
+        
+           .btn-file {
+               position:relative;
+               overflow:hidden;
+                          }
+    
+           .btn-file input[type=file]{
+               position:absolute;
+               top:0;
+               right:0;
+               min-width:50%;
+               min-height: 100%;
+               font-size:100px;
+               text-align:right;
+               /*filter:alpha(opacity=0);*/
+               opacity:0;
+               outline:none;
+               background:white;
+               cursor:inherit;
+               display:block;               
+           }
+           .fileTable {
+               margin-top:25px;
+           }
+        
+        </style>
+       
+       
+        <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Active Project Files:</h3>
+        </div>
+        <div class="panel-body">          
+          <div>Add File(s) &nbsp;
+          <span class="btn btn-default btn-file"> Browse <input accept="file_extension|audio/*|video/*|image/*|media_type" type="file" name="myFileInput" class="myFileInput" multiple><i class="fa fa-upload"></i></span></div>
+          <div class="fileTable">
+              <table class="table table-hover table-responsive ">
+                  
+                  <thead>
+                      <th>File </th>
+                      <th>Download</th>  
+                      <th>Delete</th>  
+                      <th>Archive</th>                      
+                  </thead>
+                  
+                  <tbody>
+                   {{#each uploads}}
+                     {{>upload}}
+                     {{/each}}
+                      
+                  </tbody>
+                  
+              </table>
+          </div>
+        </div>
+        
+    </div>
+    </template>
+    
+    <template name="upload">
+           <tr>
+                          <td >{{name}}</td>
+                          <td><a target="_blank" href="{{url download=true}}" class="btn btn-primary"><i class="fa fa-download"></i></a></td>
+                          <td><a href="#" class="btn btn-danger" id="deleteFile"><i class="fa fa-trash"></i></a></td>
+                           <td><button type="button" class="btn btn-default archiveFile"><i class="fa fa-minus-square-o "></i> Archive</button></td>
+                      </tr>
+        
+    </template>
+    
+   
+
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->

@@ -10,17 +10,15 @@
  {{>delconfirm}}
  {{/if}}
  
-<!--{{#if archiveProject}}
+{{#if archiveProject}}
  {{>archiveapprove}}
- {{/if}}-->
+ {{/if}}
  
   <div class="template-dashboard">
                
                      <div class="page-header">
-                        
-                       <!--  <div class="jumbotron"><h2><i class="fa fa-group" aria-hidden="true"></i> Your Projects</h2></div> -->
-                      
-
+                     
+         
                            
                                        
           <ol class="breadcrumb">
@@ -33,7 +31,7 @@
            <div class="alert alert-info alert-dismissable">
     		
 			<i class="fa fa-bullhorn" aria-hidden="true"></i>
- TOOLTIP: <br><br>Project details can be edited directly through their <b>General Details</b> tab.  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button>
+ TOOLTIP: <br><br>Project details can be edited directly by clicking their <b>General Form </b> details.  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button>
 		</div>
       
       
@@ -52,8 +50,8 @@
                   
               }
          </style>
-          
-          <input class="setup_input noborder projectname" type="text" name="projectNameEnter" id="projectNameEnter" placeholder="Create a New Project " value="">
+          <h3><b>Create A New Project</b></h3> <br>
+          <input class="setup_input noborder projectname" type="text" name="projectNameEnter" id="projectNameEnter" placeholder=" Begin typing here to title your project ... " value="">
           </p>  </div>
       
     <div class="col-md-4" align="right">
@@ -78,10 +76,11 @@
           <span class="btn btn-default " > {{> EasySearch.Input index=ProjectIndex }} <i class="fa fa-search" aria-hidden="true"> </i>
 </span> <br>
         
+        {{> EasySearch.Pagination index=ProjectIndex customRenderPagination="paginate2" maxPage=50 prevAndNext=true  }}
         
         </div>
         
-           {{> EasySearch.Pagination index=ProjectIndex customRenderPagination="paginate2" maxPage=50 prevAndNext=true  }}
+          
            
            </div>
        
@@ -109,6 +108,8 @@
               
               
               </div>
+            
+             
               
                <hr>
               

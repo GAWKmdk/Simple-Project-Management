@@ -1,0 +1,93 @@
+<template name="project_Scrumboard">
+  <div class="panel panel-default">
+        <div class="panel-heading">
+
+      <!--breadcrumb--> 
+            <div class="panel panel-default">
+       <div class="panel-heading">
+            <h3 class="panel-title">ScrumBoard</h3>
+           <br><button>Create New + </button>
+        </div> 
+     <hr>
+    
+                
+                {{>scrumboard_canvas}}
+                
+   
+    </div>
+    </div>  
+    </div>
+</template>
+
+
+<template name="scrumboard_canvas">
+   
+    
+     <div style="margin: 0 auto; padding: 0px 0px 0px 0px; /">   
+    <div class="uk-grid-match uk-grid-small uk-text-center uk-child-width-expand@s " uk-grid >
+    
+        
+        <div class="">
+        <div class="uk-card uk-card-small uk-card-default "><b><h3>Sprint</h3></b></div>
+            
+            <ul uk-sortable="group: post-its" style=" background-color:#e7e7e7; list-style: none;">
+            <li> {{>scrumboard_post_it}}</li>
+            
+            </ul>
+     </div>
+        
+        <div class="">
+            <div class="uk-card uk-card-small uk-card-default "><b><h3>To Do</h3></b></div>
+            
+            <ul uk-sortable="group: post-its" style=" background-color:#e7e7e7; list-style: none;">
+            <li></li>
+            <li></li>
+            </ul>
+    </div>
+        
+        <div class="">
+            <div class="uk-card uk-card-small uk-card-default "><b><h3>Active</h3></b></div>
+            
+            <ul uk-sortable="group: post-its" style=" background-color:#e7e7e7; list-style: none;">
+            <li></li>
+            <li></li>
+            </ul>
+    </div>
+    
+        <div class="">
+            <div class="uk-card uk-card-small uk-card-default " ><b><h3>In Review</h3></b></div>
+            
+            <ul uk-sortable="group: post-its" style=" background-color:#e7e7e7; list-style: none;">
+            <li></li>
+            <li></li>
+            </ul>
+    </div>
+    
+        <div class="">
+            <div class="uk-card uk-card-small uk-card-default "><b><h3>Complete</h3></b></div>
+    
+        
+        <ul uk-sortable="group: post-its" style=" background-color:#e7e7e7; list-style: none;">
+            <li></li>
+            <li></li>
+            </ul>
+            </div>
+</div>
+            </div>
+        <hr>
+     
+        
+        
+   
+   
+   
+</template>
+
+
+
+
+
+
+
+
+

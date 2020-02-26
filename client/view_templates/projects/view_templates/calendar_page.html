@@ -1,0 +1,53 @@
+
+<template name="project_Workplan">
+      
+    {{>calendar_actual}}
+   
+</template>
+
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+  <template name="calendar_actual">
+        <div class="panel panel-default">
+        
+        <div class="panel-body">
+           
+                           
+          
+                   {{>calendar}}
+                   
+            
+            
+        </div>
+        <div class="panel-footer">
+             
+             
+        </div>
+    </div>
+       
+</template>
+        
+        <template name="calendar">
+        <div class="panel panel-default">
+         
+
+        <div class="panel-heading">
+           
+           <div class="alert alert-warning alert-dismissable">
+    		
+			<i class="fa fa-bullhorn" aria-hidden="true"></i>
+ TOOLTIP: <br><br> Use the Workplan Calendar to organize your communications and share relevant tasks, events and notifications. <br><br> To place a general milestone on the calendar, simply click the date you wish to assign it to. <br> To edit the milestone simply reclick its' coresponding box and modify the relevant data. <br> Only roles which have been given permission can create or edit milestones.<br><br> <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button></div>
+           
+            <h3 class="panel-title">Your Project Calendar: </h3>
+        </div>
+        <div class="panel-body">
+        
+        <div id="projectCalendar">
+            
+            </div>
+              </div>
+              
+            </div>
+    </template>

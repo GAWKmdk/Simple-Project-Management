@@ -1,0 +1,214 @@
+<template name="archives">
+  <div class="template-archive">
+    
+       <div class="page-header">
+       <!--  <div class="jumbotron"><h2><i class="fa fa-archive" aria-hidden="true"></i> Archive</h2></div> -->
+      
+      <div>
+                  
+          <ol class="breadcrumb">
+        <li class="active"><a href="{{pathFor 'profile'}}"><i class="fa fa-user"></i> <!--configure signup-signin with custom registration to match profile{{user}}--> {{ currentUser.username }} </a></li>
+       
+       <li class=""><i class="fa fa-archive" aria-hidden="true"></i> Archive </li> <br>  
+       
+    </ol> 
+          
+      </div>
+      
+    </div>
+    
+   
+    <div class="page-body-header">
+    
+    
+    
+    
+    
+    
+      </div>
+    
+      
+      <div class="panel-body">
+      
+      
+     <!-- <div class="row">
+      <div class="col-md-10">
+         <label>Archived Projects</label>
+         {{>archiveProject}}
+          </div>
+          </div> --> 
+          <div>
+              Current Project of files is : {{name}}
+          </div>
+           
+          <div class="row">
+          <div class="col-md-5">
+              <label>Archived Documentation</label>
+              {{>archiveConversate}}
+          </div>
+          <div class="col-md-5">
+              <label>Archived Files</label>
+              {{>archiveFiles}}
+          </div>
+          
+          </div>
+          
+          <div class="row">
+          <div class="col-md-10">
+          <label>Archived Conversations</label>
+             {{>archiveConversation}}
+              </div>
+          </div>
+          
+          <!-- <div class="row">
+          <div class="col-md-10">
+          <label>Archived Customers</label>
+             {{>archiveCustomer}}
+              </div>
+          </div> --> 
+          
+         
+      
+      
+    </div>
+      
+      
+    
+  </div> 
+  
+  
+</template>
+
+
+<template name="archiveConversation">
+          <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <th>Type: </th>
+          <th>Date: </th>
+          <th>Content: </th>
+          <th>UnArchive: </th>
+       
+        </thead>
+        <tbody>
+        {{#each conversations}}
+          <tr>
+            <td>{{project}}</td>
+            <td>{{formatdate dateadded}}</td>
+            <td>{{note}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveConversation">
+              <i class="fa fa-minus-square-o"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      </template>
+     
+                                 
+    <template name="archiveCustomer">
+        <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <th>Company: </th>
+          <th>Date: </th>
+          <th>Note: </th>
+          <th>UnArchive: </th>
+       
+        </thead>
+        <tbody>
+        {{#each customers}}
+          <tr>
+            <td>{{company}}</td>
+            <td>{{formatdate dateadded}}</td>
+            <td>{{contact}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveCustomer">
+              <i class="fa fa-minus-square-o"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </template>
+     
+                                                                                          
+   <template name="archiveProject">
+       <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <th>Info: </th>
+          <th>Date: </th>
+          <th>Notice: </th>
+          <th>UnArchive: </th>
+       
+        </thead>
+        <tbody>
+        
+                    {{#each projects}}
+          <tr>
+            <td>Project</td>
+            
+            <td>{{formatdate dateentered}}</td>
+            <td>{{name}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveProject">
+              <i class="fa fa-archive"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+          
+          
+          
+        </tbody>
+      </table>
+   </template>                                                                                          
+   
+   
+   
+    
+     <template name="archiveFiles">
+        <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <th>Project: </th>
+          <th>Date: </th>
+          <th>Content: </th>
+          <th>UnArchive: </th>
+       
+        </thead>
+        <tbody>
+        {{#each uploads}}
+          <tr>
+            <td>{{project}}</td>
+            <td>{{formatdate dateadded}}</td>
+            <td>{{name}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveFile">
+              <i class="fa fa-minus-square-o"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table> 
+         
+     </template>     
+    
+     <template name="archiveConversate">
+        <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <th>Project: </th>
+          <th>Date: </th>
+          <th>Message: </th>
+          <th>UnArchive: </th>
+       
+        </thead>
+        <tbody>
+        
+            {{#each converse}}
+          <tr>
+            <td>{{project}}</td>
+            <td>{{formatdate dateadded}}</td>
+            <td>{{note}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveConversate">
+              <i class="fa fa-minus-square-o"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+          
+        </tbody>
+      </table> 
+     </template> 

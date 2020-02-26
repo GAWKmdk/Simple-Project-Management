@@ -1,0 +1,160 @@
+
+<template name="project_Details">
+  
+  
+  
+  
+   <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="">Your Project Brief: </h3> <br>
+						 <div class="alert alert-info alert-dismissable">
+    		
+			<i class="fa fa-bullhorn" aria-hidden="true"></i>
+ TOOLTIP: <br><br>Projects' displayed on your Dashboard can be edited directly by selecting the <b>Highlighted</b> details below.  <button aria-hidden="true" data-dismiss="alert" class="close" type="button" style="top:-5px;">×</button>
+		</div>
+        </div>
+        <div class="panel-body">
+         <div class="row">
+             
+          
+          
+          <div class="col-md-7">
+           {{>projectPanelHeading}}
+           
+             </div>
+             
+             
+             <!--
+             <div class="col-md-5">
+              
+              <label>This is recent Workflow Calendar Activity</label>
+              
+              {{>conversations}}
+               
+          </div> -->
+          
+        </div>
+        <!--
+        <div class="row">
+            
+           
+            <div class="col-md-4">
+              
+              <label>This is recent File Upload Activity</label>
+              
+              {{>uploadconversation}}
+               
+          </div>
+             <div class="col-md-4">
+              
+              <label>This is recent Scrumboard Activity</label>
+              
+              {{>scrumconversation}}
+               
+          </div>
+            
+        </div>
+            -->
+       </div>
+        
+        <div class="panel-footer">
+            
+        </div>
+    </div>
+     
+</template>
+
+
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+<template name="conversations"> <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Workflow Activity in <b><a class="activitySort" href="#">{{activitySort}}</a></b> order.</h3>
+        </div>
+        
+        <style>
+            .scroll {
+            height: 220px!important;
+    overflow: scroll;
+            }
+    </style>
+       
+       <!-- Later on create tabs for conversations, uploads, scrum {{#each teamchat}}
+            {{/each}}
+            {{else}} --> 
+        
+        <div class="panel-body scroll">
+         <ul class="list-group">
+           {{#each calevents}}
+            {{>calevent}}<br>
+            {{else}}
+            
+            No Activities Found ! 
+            {{/each}}
+             
+         </ul>
+         
+        </div>
+        
+        <div class="panel-footer">
+        </div>
+    </div>  </template>
+    
+    
+<template name="calevent">
+    <li class="list-group-item">
+        <a href="#" class="activityEvent"> <b>Started:</b> {{formatdate start}}</a>
+        <span class="badge" style="background-color:{{color}}"><i class="fa fa-{{faicon}}"></i>{{#if type}}{{type}}{{else}}{{taskTitle}}{{/if}} </span> 
+        
+        <div class="alert alert-success"><span><b>Created by:</b> {{owner}}</span><br><b>Details:</b> {{#if title}}{{title}}{{else}}{{name}}{{/if}}</div>        
+       <!-- <a href="#" class="activityEvent"> <b>Due for:</b> {{formatdate end}}</a> -->
+    </li>
+    
+</template>
+    
+    
+    <template name="uploadconversation"> <div class="panel panel-default">
+        <div class="panel-heading">
+           <!-- <h3 class="panel-title">Download Activity in <b><a class="activitySortf" href="#">{{activitySortf}}</a></b> order.</h3> -->
+        </div>
+        
+        <style>
+            .scroll {
+            height: 220px!important;
+    overflow: scroll;
+            }
+    </style>
+       
+       <!-- Later on create tabs for conversations, uploads, scrum {{#each teamchat}}
+            {{/each}}
+            {{else}} --> 
+        
+        <div class="panel-body scroll">
+         <ul class="list-group">
+           {{#each uploads}}
+            {{>fileevent}}<br>
+            {{else}}
+            
+            No Uploads Found ! 
+            {{/each}}
+             
+         </ul>
+         
+        </div>
+        
+        <div class="panel-footer">
+        </div>
+    </div>  </template>
+    
+    
+<template name="fileevent">
+    <li class="list-group-item">
+        <a href="#" class="activityEvent"> <b>Uploaded on:</b> {{formatdate dateadded}}</a><span class="badge"><i class="fa fa-download"></i></span>
+               
+        <div class="alert alert-success"><span><b>Uploaded by:</b> {{creatorId}}</span><br><b>Details:</b> {{#if title}}{{title}}{{else}}{{name}}{{/if}}</div>        
+       <!-- <a href="#" class="activityEvent"> <b>Due for:</b> {{formatdate end}}</a> -->
+    </li>
+    
+</template>

@@ -3,9 +3,12 @@
     <!--<div class="page-header"> -->
     
      <p>
+        
+    {{#if currentUser}}  
          
-    {{#if currentUser}} 
-    {{else}}
+   <li> Tutorial window goes here </li>
+         
+    {{else}} 
      {{> carousel_features}}
     <hr>
      
@@ -13,7 +16,7 @@
      
       <!--{{> price_list}} -->
      
-       {{/if}}
+        {{/if}} 
 
     </p>
     

@@ -1,4 +1,46 @@
 
+Updated 10/09/2019
+
+- Calendar needs time and sorted by time date
+- due-date needs to be auto generated when set
+- archieve fixed for only projects
+- Community channel needs single entry delete /edit
+- Remove subscription - change to admin or regular user - enable admin to see role tasks and archieve
+- Clean up UI
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ESSENTIALS
 /////////////////////
 activity =  event type bkrd color, event type icon ++ for uploads, todo, chat

@@ -1,7 +1,21 @@
 
+//router config
+Router.configure({
+	layoutTemplate: 'appLayout'
+});
+
+
+//Login Security Redirective
+Router.plugin('ensureSignedIn', {
+    except: ['home', 'atSignIn', 'atSignUp', 'atForgotPassword', 'help', 'privacy', 'terms-of-use'],
+  only: ['dashboard','profile','archives','roles','/projects/:id','listings']
+});
+
+    
 
 Router.route('/', {
   name: 'home',
+    layoutTemplate: 'appLayout',
     controller: 'HomeController'
 });
 
@@ -9,6 +23,7 @@ Router.route('/', {
 // Profile Route
 Router.route('/profile', {
   name: 'profile',
+    layoutTemplate: 'appLayout',
   controller: 'ProfileController'
   
 });
@@ -34,6 +49,7 @@ Router.route('/projects/:id', {
 // Listing or customers Route
 Router.route('/listings', {
   name: 'listings',
+     layoutTemplate: 'appLayout',
   controller: 'ListingController'
   
 });
@@ -41,6 +57,7 @@ Router.route('/listings', {
 // Team Roles Route
 Router.route('/roles', {
   name: 'roles',
+    layoutTemplate: 'appLayout',
   controller: 'RoleController'
   
 });
@@ -49,42 +66,40 @@ Router.route('/roles', {
 // Archive Route
 Router.route('/archives', {
   name: 'archives',
+    layoutTemplate: 'appLayout',
   controller: 'ArchiveController'
   
 });
 
 // Post-it wall Route
-Router.route('/todolist', {
-  name: 'todolist',
-  controller: 'TodoController'
-});
+//Router.route('/todolist', {
+ // name: 'todolist',
+ //   layoutTemplate: 'appLayout',
+//  controller: 'TodoController'
+// });
 
 // Privacy Route
 Router.route('/privacy', {
-  name: 'privacy'
+  name: 'privacy',
+    layoutTemplate: 'appLayout'
+    
 });
 // Help Route
 Router.route('/help', {
-  name: 'help'
+  name: 'help',
+    layoutTemplate: 'appLayout'
 });
 // Contact Us Route
 Router.route('/contactus', {
-  name: 'contactus'
+  name: 'contactus',
+    layoutTemplate: 'appLayout'
 });
 
 // Terms of Use Route
 Router.route('/terms-of-use', {
-  name: 'terms-of-use'
-});
-
-// ForgotPwd Route
-Router.route('forgotPwd', {
-  name: 'forgotPwd'
+  name: 'terms-of-use',
+    layoutTemplate: 'appLayout'
 });
 
 
-//Login Security Redirective
-Router.plugin('ensureSignedIn', {
-    //except: ['home', 'atSignIn', 'atSignUp', 'atForgotPassword','admin','privacy', 'terms-of-use']
-    only: ['dashboard','profile','archives','roles','/projects/:id','listings']
-});
+

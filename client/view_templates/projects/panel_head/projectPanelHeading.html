@@ -1,0 +1,86 @@
+<template name="projectPanelHeading">
+  <div class="panel-heading">
+   
+   
+          
+   
+    <h2 class="panel-title">
+     
+
+      <span id="projectName">
+        {{#if editing_projectname}}
+        <input style="width:250px;margin-left:20px;margin-top:10px;font-size:12pt;" type="text"
+        class="noborder form-control projectName" id="projectName"
+        placeholder="Your Projects Name" value="{{name}}">
+        {{else}}
+        <span><a class="projectNameEdit" href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>    {{name}}</a></span>
+          {{/if}} </span></h2><br>
+        
+          <div class="alert alert-info">
+          <h4>Project Brief:</h4>
+  <br>
+     
+     <span id="projectNotes">
+        {{#if editing_projectnotes}}
+        <input style="width:250px;margin-left:20px;margin-top:10px;font-size:12pt;" type="text"
+        class="noborder form-control projectNotes" id="projectNotes"
+        placeholder="Additional Notes" value="{{notes}}">
+        {{else}}
+        <span><a class="projectNotesEdit" href="#" placeholder="Additional Notes"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  {{notes}} </a></span>
+        {{/if}} </span>
+     
+        </div><br>
+         
+        
+        
+<div class="table-responsive"> 
+<table class="table table-condensed table-bordered"> 
+<thead class="thead-default"> 
+        <th>Project Client</th>
+        <th>Due Date</th>
+         
+    </thead>
+    
+    <tbody>
+    
+    <tr>
+    <td>
+    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      {{#if editing_projectcustomer}}
+      <select style="width:250px;margin-left:20px;margin-top:10px;font-size:12pt;" class="form-control customer input" name="customer" id="customer">
+        <option value="">Select a customer ...</option>
+        {{#each customers}}
+        <option selected="{{isSelected ..}}" value="{{_id}}">{{name}}</option>
+        {{/each}}
+      </select>
+      {{else}}
+      <span><a class="projectCustomerEdit" href="#">{{#if customer.name}}{{customer.name}}{{else}}Select a Customer{{/if}}</a></span>
+      {{/if}}  
+      </td>
+    
+    <td>
+      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  
+      {{#if editing_datedue}}
+    
+      <div id="datepicker">
+      <input style="width:250px;margin-left:20px;margin-top:10px;font-size:12pt;" type="text"
+      class="datepicker form-control dateDue" id="dateDue"
+      placeholder="Project's Date Due" value="{{datedue}}">
+        </div>
+      {{else}}
+      <span><a class="projectDateDue" href="#">{{ datedue}}</a></span>
+      {{/if}}  
+       </td>
+        
+    </tr>
+    
+    </tbody>
+    
+    </table>
+              </div>
+      
+      
+       
+    
+  </div>
+</template>

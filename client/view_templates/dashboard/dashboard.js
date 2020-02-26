@@ -51,12 +51,13 @@ if(event.which === 27 || event.which === 13 ){
     },
     
     'click .archiveProject':function(event, template){
-  // return Meteor.call('archiveProject',this._id,!this.archived);
-     //   evt.preventDefault();
-       // evt.stopPropagation();
-     // Session.set('archiveProject',this._id, true);   
-    return Meteor.call('archiveProject',this._id,!this.archived); 
-        // console.log("project archived -- for testing purposes");
+   return Meteor.call('archiveProject',this._id,!this.archived);
+        evt.preventDefault();
+        evt.stopPropagation();
+      Session.set('archiveProject',this._id, true);   
+    
+        return Meteor.call('archiveProject',this._id,!this.archived); 
+         console.log("project archived -- for testing purposes");
   },
   'click .cancelDelete':function(){
     return Session.set('projectToDelete',null);
